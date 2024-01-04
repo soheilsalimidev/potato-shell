@@ -19,6 +19,7 @@ enum Builtin {
     Clear,
     Exit,
     ClearHistory,
+    Help,
     Other(String),
 }
 
@@ -31,6 +32,7 @@ impl FromStr for Builtin {
             "pwd" => Ok(Builtin::Pwd),
             "clear" => Ok(Builtin::Clear),
             "exit" => Ok(Builtin::Exit),
+            "help" => Ok(Builtin::Help),
             "clearHistory" => Ok(Builtin::ClearHistory),
             _ => Ok(Builtin::Other(s.to_owned())),
         }
@@ -53,7 +55,8 @@ fn main() -> Result<()> {
     let mut rl = DefaultEditor::new()?;
 
     if rl.load_history("history.txt").is_err() {
-        println!("{}", "No previous history.".red());
+        println!("{}", "Wellcome to potao shell".yellow());
+        print_help();
     }
     let mut currct_path = "/".to_owned();
     loop {
@@ -164,6 +167,7 @@ fn handel_command(
                     }
                 };
             }
+            Builtin::Help => print_help(),
         }
     }
 
@@ -172,4 +176,22 @@ fn handel_command(
     }
 
     Ok(())
+}
+
+fn print_help() {
+    println!(
+        "{} \n {}",
+        r#" these are the Builtin commands that you can use
+    - history: show your commands history
+    - cd: change directory 
+    - pwd: see  dirctgoury you currently on
+    - clear: clear the screen
+    - exit: exit the potato shell
+    - clearhistory: clear you history
+    - help: see help againg :)
+
+            "#
+        .purple(),
+        r#"use '|' for piping and for file chaing use "<<" and ">>" "#.blue()
+    )
 }

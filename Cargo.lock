@@ -263,6 +263,18 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3fdb12b2476b595f9358c5161aa467c2438859caa136dec86c26fdd2efe17b92"
 
 [[package]]
+name = "potato-shell"
+version = "0.1.1"
+dependencies = [
+ "anyhow",
+ "chrono",
+ "colored",
+ "csv",
+ "rustyline",
+ "serde",
+]
+
+[[package]]
 name = "proc-macro2"
 version = "1.0.75"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -288,18 +300,6 @@ checksum = "c069c179fcdc6a2fe24d8d18305cf085fdbd4f922c041943e203685d6a1c58fd"
 dependencies = [
  "endian-type",
  "nibble_vec",
-]
-
-[[package]]
-name = "rust-shell"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "chrono",
- "colored",
- "csv",
- "rustyline",
- "serde",
 ]
 
 [[package]]
