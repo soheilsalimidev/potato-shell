@@ -3,7 +3,7 @@ to run install Rust and run
 ```sh 
 cargo run
 ```
-
+دانلود برنامه در https://github.com/soheilsalimidev/potato-shell/releases/tag/v1.0.2
 **Info**
 
 پروژه ساخت یک شل ساده در یونیکس
